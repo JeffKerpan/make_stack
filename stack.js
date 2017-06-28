@@ -1,20 +1,36 @@
 function Stack(){
-  this.items = new Array();
+  this.items = [];
 
-}
 
-Stack.prototype.empty =  function ()   {
-  return this.items.length === 0;
-};
+let empty = () => this.items.length === 0;
 
-Stack.prototype.push = function (item)  {
+let push = (item) => {
   this.items.push(item);
   return item;
 };
 
-let peek = () => this.items(this.items.length -1);
-// return peek;
+let peek = () => this.items[this.items.length -1];
 
+let pop = () => this.items.pop();
+
+let search = (term) => {
+  for(let i=0; i<this.items.length; i++) {
+    if(this.items[i] === term) {
+      return i;
+    }
+  }
+  return 0.1;
+};
+
+  return {
+    empty,
+    push,
+    peek,
+    pop,
+    search
+  };
+
+}
 
 
 module.exports = Stack;
